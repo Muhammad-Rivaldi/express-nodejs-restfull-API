@@ -35,7 +35,10 @@ app.use(express.json()) //->request body
 
             // 
             const {nama_siswa} = req.body;
-            const newSiswa = await db.query("INSERT INTO siswa (nama_siswa) VALUES ($1) RETURNING *",[nama_siswa]);
+            const {nisn} = req.body;
+            const {alamat} = req.body;
+            const {kelas} = req.body;
+            const newSiswa = await db.query("INSERT INTO siswa (nama_siswa,nisn,alamat,kelas) VALUES ($1,$2,$3,$4) RETURNING *",[nama_siswa,nisn,alamat,kelas]);
             res.json(newSiswa.rows[0]);
         } catch (err) {
             console.error(err.message);
@@ -47,7 +50,10 @@ app.use(express.json()) //->request body
         try {
             const {id} = req.params;
             const {nama_siswa} = req.body;
-            const updateSiswa = await db.query("UPDATE siswa SET nama_siswa = $1 WHERE id_siswa = $2",[nama_siswa,id]);
+            const {nisn} = req.body;
+            const {alamat} = req.body;
+            const {kelas} = req.body;
+            const updateSiswa = await db.query("UPDATE siswa SET nama_siswa = $1,nisn = $2,alamat = $3,kelas = $4 WHERE id_siswa = $5",[nama_siswa,nisn,alamat,kelas,id]);
             res.json("data siswa berhasil di update.");
         } catch (err) {
             console.error(err.message)
