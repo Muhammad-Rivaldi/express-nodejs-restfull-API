@@ -4,11 +4,11 @@ const db = require("./db");
 
 app.use(express.json()) //->request body
 
-// ROUTE//
+// ROUTE //
 // get all data
     app.get("/siswa",async (req,res)=>{
         try {
-            console.log(req.params);
+            // console.log(req.params);
             const allSiswa = await db.query("SELECT * FROM siswa");
             res.json(allSiswa.rows);
         } catch (err) {

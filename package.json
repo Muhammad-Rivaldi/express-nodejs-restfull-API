@@ -4,9 +4,10 @@
   "description": "project untuk belajar npm",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "hello": "echo \"Hello World\"",
-    "server": "node app.js"
+    "start": "node app.js",
+    "test" : "nodemon test.js",
+    "jalan" : "nodemon server-sec.js"
   },
   "keywords": [
     "npm"
@@ -18,5 +19,7 @@
     "moment": "^2.29.1",
     "pg": "^8.4.1"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
 }
